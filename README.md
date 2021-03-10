@@ -1,6 +1,6 @@
 # expo-camera-out-of-memory
 
-expo bare project to reproduce an `OutOfMemoryError` when taking a picture with `expo-camera` on a old android device (Galaxy J3, Android 5.1.1)
+expo bare project to reproduce an `OutOfMemoryError` (crash) when taking a picture with `expo-camera` on a old android device (e.g Galaxy J3, Android 5.1.1)
 
 ## How to reproduce
 
@@ -41,3 +41,5 @@ Caused by java.lang.OutOfMemoryError: Failed to allocate a 31961100 byte allocat
        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:587)
        at java.lang.Thread.run(Thread.java:818)
 ```
+
+Note: [react-native-camera](https://github.com/react-native-camera) had a similar issue: https://github.com/react-native-camera/react-native-camera/issues/590

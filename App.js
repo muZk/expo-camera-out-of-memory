@@ -20,15 +20,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       {hasCameraPermission ? (
-        <>
-          <Camera
-            ref={camera}
-            pictureSize="3264x2448"
-            ratio="4:3"
-            style={{ flex: 1 }}
-            onCameraReady={() => takePicture()}
-          />
-        </>
+        <Camera
+          ref={camera}
+          style={{ flex: 1 }}
+          onCameraReady={() => takePicture()}
+        />
       ) : (
         <Text>No camera permissions.</Text>
       )}
