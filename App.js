@@ -8,7 +8,9 @@ export default function App() {
   const [hasCameraPermission, setHasCameraPermission] = React.useState(true)
 
   const takePicture = () => {
-    camera.current.takePictureAsync().then(console.log)
+    camera.current.takePictureAsync({
+      fixOrientation: true,
+    }).then(console.log)
   };
 
   return (
