@@ -1,17 +1,11 @@
 import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
-import { Camera } from 'expo-camera';
+import { RNCamera } from 'react-native-camera';
 
 export default function App() {
   const camera = React.useRef(null)
-  const [hasCameraPermission, setHasCameraPermission] = React.useState(false)
-
-  React.useEffect(() => {
-    Camera.requestPermissionsAsync().then((permissionResponse) => {
-      setHasCameraPermission(permissionResponse?.status === 'granted')
-    })
-  }, [])
+  const [hasCameraPermission, setHasCameraPermission] = React.useState(true)
 
   const takePicture = () => {
     camera.current.takePictureAsync().then(console.log)
@@ -20,7 +14,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       {hasCameraPermission ? (
-        <Camera
+        <RNCamera
           ref={camera}
           style={{ flex: 1 }}
           onCameraReady={() => takePicture()}
